@@ -1,0 +1,14 @@
+nav
+{
+    background-color: rgb(32, 33, 36);
+    
+}
+.nav-heading
+{
+    color: lightgray !important;
+}
+
+input
+{
+    width: 30vh !important;
+}
