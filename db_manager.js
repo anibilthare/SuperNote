@@ -1,7 +1,7 @@
-var database = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var client = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/SuperNote";
 
-database.connect(url, function(err, db) {
+client.connect(url, function(err, db) {
 	if (err)
 		throw err;
 	var dbo = db.db("SuperNote");
