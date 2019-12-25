@@ -1,3 +1,11 @@
+body
+{
+    /* background-color: rgb(32, 33, 36); */
+    background: url(./notebook.jpg);
+    z-index: 1;
+    
+
+}
 nav
 {
     background-color: rgb(32, 33, 36);
@@ -8,7 +16,33 @@ nav
     color: lightgray !important;
 }
 
-input
+.searchbar
 {
     width: 30vh !important;
+}
+.wrapper
+{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+.item
+{
+    height: calc(100vh - 56px);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.wrapper ul
+{
+    padding: 0;
+    margin: 0;
+}
+.wrapper ul li
+{
+    list-style: none;
+    padding:15px 0 ;
+    margin: 0;
+    text-align: center;
+    border-bottom: solid;
+    border-width: .5px;
 }
