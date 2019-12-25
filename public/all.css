@@ -4469,3 +4469,40 @@ readers do not read off random characters that represent icons */
     background-color: #17a2b8;
     color: white;
   }
+/* grid */
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    background-color: #17a2b8;
+    padding: 10px;
+    width: 700px;
+    position: absolute;
+    left:300px;
+    top:170px;
+    
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    border-radius: 2px;
+  }
+  
+  .item1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .item2 {
+    grid-row-start: 2;
+    grid-row-end: 4;
+  
+  }
+  .item7 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    }
