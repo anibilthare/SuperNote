@@ -10,28 +10,20 @@ connection.connect(function(err) {
 	if (err)
 		throw err;
     console.log("connection established.");
+});
 
-    var sqlQ = "CREATE DATABASE IF NOT EXIST notes;";    
-    connection.query(sqlQ, function (err, result) {
-        if (err)
-            throw err;
-        console.log("Init-1");
-    });
+/// INITIALIZE THE DATABASE
+(function() {
+    var sqlQ = "CREATE DATABASE IF NOT EXISTS notes;";
+    executeSQLQuery(sqlQ, "Init-1");
     
-    var sqlQ = "USE notes;";    
-    connection.query(sqlQ, function (err, result) {
-        if (err)
-            throw err;
-        console.log("Init-2");
-    });
+    sqlQ = "USE notes;";
+    executeSQLQuery(sqlQ, "Init-2");
 
     sqlQ = "CREATE TABLE IF NOT EXISTS test (title TINYTEXT, data TEXT, creation TIMESTAMP, modified TIMESTAMP);";
-    connection.query(sqlQ, function (err, result) {
-        if (err)
-            throw err;
-        console.log("Init-3");
-    }); 
-});
+    executeSQLQuery(sqlQ, "Init-3");
+})();
+///
 
 function executeSQLQuery (sql, consoleLogMessage) {
     connection.query(sql, function(err, result){
@@ -41,3 +33,9 @@ function executeSQLQuery (sql, consoleLogMessage) {
             console.log(consoleLogMessage);
     });
 }
+
+/**/connection.end(function(err){
+    if (err)
+        throw err;
+    console.log("Connection closed.");
+});//*/
