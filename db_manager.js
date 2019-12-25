@@ -1,19 +1,13 @@
-var client = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/SuperNote";
+var mysql = require('mysql');
 
-client.connect(url, function(err, db) {
+var connection = mysql.createConnection({
+	host: "",
+	user: "",
+	password: ""
+});
+
+connection.connect(function(err) {
 	if (err)
 		throw err;
-	var dbo = db.db("SuperNote");
-	var obj = {
-		id: "ipdipode",
-		time: "7:24 pm",
-		note: "sdvaskjfhajfnjasdnfkjsdnfjkdnfljdsngsbd"
-	};
-	dbo.collection("Notes").insertOne(obj, function(err, res) {
-		if (err)
-			throw err;
-		console.log("1 doc inserted!");
-		db.close();
-	});
+	console.log("connection established.");
 });
