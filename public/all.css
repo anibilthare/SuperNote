@@ -4448,3 +4448,24 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
+
+  /* Button */
+  .newnote {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 80px;
+    left:30px;
+  }
+  
+  .newnote:hover {
+    background-color: #17a2b8;
+    color: white;
+  }
