@@ -3,18 +3,18 @@ const mysql = require('mysql');
 
 module.exports = {
 
-    /// properties_and_deprecated_functions {
+    /// properties_and_internal_functions {
 
-    connection_set: false,
+    CONNECTION_SET: false,
     USER_TABLE_STR: "username VARCHAR(50) PRIMARY KEY, password VARCHAR(25), name VARCHAR(50)",
     NOTE_TABLE_STR: "title varchar(100), note TEXT, creation TIMESTAMP PRIMARY KEY, modified TIMESTAMP",
     
-    __executeSQLQuery: function (sql, consoleLogMessage) { //!// deprecated external usage
-        this.connection.query(sql, function(err, result){
+    __executeSQLQuery: function (sql, consoleLogMessage) { //!// internal usage only
+        this.connection.query(sql, function(err, result) {
             if (err)
                 throw err;
             if (consoleLogMessage != "")
-                console.log(consoleLogMessage);
+                console.log("database API > " + consoleLogMessage);
         });
     },
 
@@ -28,11 +28,11 @@ module.exports = {
             user: _user,
             password: _password
         });
-        this.connection_set = true;
+        this.CONNECTION_SET = true;
     },
 
     initialise: function () {
-        if (!this.connection_set) {
+        if (!this.CONNECTION_SET) {
             console.log("Please set up connection first.");
             return;
         }
@@ -52,16 +52,35 @@ module.exports = {
         sqlQ = "CREATE TABLE IF NOT EXISTS users (" + this.USER_TABLE_STR + ");";
         this.__executeSQLQuery(sqlQ, "Init-3");
         /// }
+    },
 
-        //this.connection.end();
+    check_username: function (username) {
+        _username = this.connection.escape(username);
+        this.connection.query("SELECT * FROM users WHERE username = " + _username + ";",
+            function(err, result, fields) {
+                if (result.length !== 0) { /// !== because type safe check required here
+                    return true;
+                }
+            }
+        );
+        return false;
     },
 
     create_user: function (username, pass, name) {
-        var sqlQ = "INSERT INTO users VALUES ('" + username + "', '" + pass + "', '" + name + "');";
+        if (this.check_username(username))
+            return false;
+
+        _username = this.connection.escape(username);
+        _pass = this.connection.escape(pass);
+        _name = this.connection.escape(name);
+
+        var sqlQ = "INSERT INTO users VALUES (" + _username + ", " + _pass + ", " + _name + ");";
         this.__executeSQLQuery(sqlQ, "NEW USR CREATED-1");
 
-        sqlQ = "CREATE TABLE " + username + " (" + this.NOTE_TABLE_STR + ");";
+        sqlQ = "CREATE TABLE " + _username.substring(1, _username.length - 1) + " (" + this.NOTE_TABLE_STR + ");"; /// escaped string comes with single quotes
         this.__executeSQLQuery(sqlQ, "NEW USR CREATED-2");
+
+        return true;
     },
 
     login: function (username, pass) {
@@ -69,7 +88,7 @@ module.exports = {
         _pass = this.connection.escape(pass);
         var success = false;
 
-        this.connection.query("SELECT password FROM users WHERE username = '" + _username + "';",
+        this.connection.query("SELECT password FROM users WHERE username = " + _username + ";",
             function(err, result, fields) {
                 if (result[0].password == _pass) {
                     success = true;
@@ -81,8 +100,15 @@ module.exports = {
     },
 
     newNote: function (username, pass, note, title, timestamp) {
+        _username = this.connection.escape(username);
+        _pass = this.connection.escape(pass);
+        _note = this.connection.escape(note);
+        _title = this.connection.escape(title);
+        _timestamp = this.connection.escape(timestamp);
+
         if (this.login(username, pass)) {
-            var sqlQ = "INSERT INTO " + username + " values ('" + title + "', '" + note + "', " + timestamp + ", " + timestamp + ");";
+            var sqlQ = "INSERT INTO " + _username + " values (" + _title + ", " 
+                + _note + ", " + _timestamp + ", " + _timestamp + ");";
             this.__executeSQLQuery(sqlQ, "NEW NOTE ADDED");
         }
     },
