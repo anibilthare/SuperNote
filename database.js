@@ -55,6 +55,8 @@ module.exports = {
         sqlQ = "CREATE TABLE IF NOT EXISTS users (" + this.__USER_TABLE_STR + ");";
         this.__executeSQLQuery(sqlQ, "Init-3");
         /// }
+
+        return true;
     },
 
     check_username: function (username) {
@@ -92,21 +94,27 @@ module.exports = {
         return true;
     },
 
-    login: function (username, pass) {
+    login: async function (username, pass) {
         var _username = this.connection.escape(username);
         var _pass = this.connection.escape(pass);
         var success = false;
+        var __async_func_waiter = false;
+        var lallulal = "pappu bhai not rocks.";
 
-        function toggleSuccess() {success = !success};
-
-        this.connection.query("SELECT password FROM users WHERE username = " + _username + ";",
+        await this.connection.query("SELECT password FROM users WHERE username = " + _username + ";",
             function(err, result, fields) {
-                if (result[0].password == _pass.substring(1, _pass.length - 1)) {
-                    toggleSuccess();
+                if (err)
+                    throw err;
+                else if (result[0].password == _pass.substring(1, _pass.length - 1)) {
+                    console.log(lallulal);
+                    success = true;
                     console.log(result);
                 }
+                //__async_func_waiter = true;
             }
         );
+
+        //while (!__async_func_waiter) {console.log("waiting bruh!!!");}
 
         return success;
     },
