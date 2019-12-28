@@ -15,7 +15,9 @@ nav
 {
     color: lightgray !important;
 }
-
+.navbar{
+    margin-bottom:0px!important;
+}
 .searchbar
 {
     width: 30vh !important;
@@ -45,4 +47,22 @@ nav
     text-align: center;
     border-bottom: solid;
     border-width: .5px;
+}
+
+.content-section{
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 32%;
+}
+
+.content-main
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 14px;
+}
+.content-section p{
+    color:white;
+    padding:10px 10px;
 }
