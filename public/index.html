@@ -52,9 +52,9 @@
         <div class="content">
             <form class="form">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Add a note">
+                    <input type="text" class="form-control form-input" placeholder="Add a note">
                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <button class="btn btn-default add-btn" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
                 </div>
            
@@ -62,7 +62,7 @@
            
             
             <div class="content-main">
-            <div class="content-section mt-4">
+            <!-- <div class="content-section mt-4">
                 <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
             </div>
             <div class="content-section mt-4">
@@ -88,7 +88,7 @@
                 <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
             </div>
             <div class="content-section mt-4">
-                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p> -->
             </div>
             
             
@@ -102,6 +102,12 @@
         $('#sidebar-toggler').click(function(){
             $('aside').toggleClass('active1');
             $('.wrapper').toggleClass('active2');
+        })
+        $('.add-btn').click(function(e){
+            let a=$('.form-input').val();
+            e.preventDefault();
+            $('.content-main').prepend('<div class="content-section mt-4"><p>'+ a+'</p></div>');
+            $('.form-input').val('');
         })
     </script>
     

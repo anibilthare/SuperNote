@@ -85,14 +85,15 @@ nav
 .content-section{
     border: 1px solid white;
     border-radius: 5px;
-    width: 32%;
+    width: 30%;
+    margin: 10px;
 }
 
 .content-main
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: 14px;
 }
 .content-section p{
