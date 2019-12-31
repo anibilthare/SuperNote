@@ -1,7 +1,7 @@
 body
 {
     /* background-color: rgb(32, 33, 36); */
-    background: url(./notebook.jpg);
+    /* background: url(./notebook.jpg); */
     z-index: 1;
     
 
@@ -24,15 +24,28 @@ nav
 }
 .wrapper
 {
+    background-color: rgb(32, 33, 36);
+
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 0 auto;
 }
 .item
 {
     height: calc(100vh - 56px);
     background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+    position: relative;
+    left: -300px;
+}
+.active1
+{
+    left: 0;
+}
+.active2
+{
+    grid-template-columns: 300px auto;
 }
 .wrapper ul
 {
@@ -65,4 +78,18 @@ nav
 .content-section p{
     color:white;
     padding:10px 10px;
+}
+#sidebar-toggler:hover
+{
+    color: lightgray;
+}
+#sidebar-toggler:active
+{
+    color: yellow;
+}
+#sidebar-toggler
+{
+    font-size: 30px ;
+    color: white;
+    cursor: pointer;
 }

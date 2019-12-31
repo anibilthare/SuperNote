@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery tutorial</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script type="text/javascript" src="./test.js"></script> -->
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            /* margin: auto; */
+            /* text-align: center; */
+        }
+        nav
+        {
+            height: 20vh;
+            background-color: aqua;
+            text-align: center;
+            padding-top: 50px;
+        }
+        nav h1{
+            font-size: 40px;
+        }
+        li
+        {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Jquery tutorial</h1>
+    </nav>
+    <header>
+        <div class="container">
+            <h1 id="heading1">Heading one</h1>
+            <p id="para1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat asperiores perferendis cum, enim sapiente <span> quam eaque adipisci ut deserunt</span> vitae corrupti soluta quia repudiandae aliquam beatae numquam voluptas id!</p>
+            <h1 id="heading2">Heading two</h1>
+            <p id="para2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat asperiores perferendis cum, enim sapiente <span> quam eaque adipisci ut deserunt</span> vitae corrupti soluta quia repudiandae aliquam beatae numquam voluptas id!</p>
+            <ul id="list">
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        // $('h1').hide()
+        // $('p span').css('color', 'red')
+        $('ul#list li:first').css('color', 'blue')
+
+    </script>
+</body>
+</html>
