@@ -6,6 +6,11 @@ body
     
 
 }
+.content
+{
+    margin: 0;
+    padding: 0;
+}
 nav
 {
     background-color: rgb(32, 33, 36);
@@ -42,10 +47,25 @@ nav
 .active1
 {
     left: 0;
+
 }
 .active2
 {
     grid-template-columns: 300px auto;
+}
+.active3
+{
+    color: yellow;
+}
+
+.form
+{
+    width: 50vh;
+    margin: auto;
+}
+.add-btn
+{
+    width: 80px;
 }
 .wrapper ul
 {
