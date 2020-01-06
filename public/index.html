@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="./main.js"></script>
+    <title>Web app</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top">
+        <span id="sidebar-toggler">&#9755;</span>
+        <a href="#" class="navbar-brand nav-heading">My Notes</a>
+        <form class="form-inline nav-form mr-auto">
+            <input type="search" placeholder="Find my notes" class="mr-2 form-control searchbar">
+            <button type="button" class="btn btn-outline-info">Search</button>
+        </form>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Settings</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+        </ul>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="item">
+            <ul>
+                <li><a href="#">Add a note</a></li>
+                <li><a href="#">Notes</a></li>
+                <li><a href="#">Deleted</a></li>
+            </ul>
+        </aside>
+        <!-- Content -->
+        <div class="content">
+            <form class="form">
+                <div class="input-group">
+                    <input type="text" class="form-control form-input" placeholder="Add a note">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default add-btn" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+           
+            </form>
+           
+            
+            <div class="content-main">
+            <!-- <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+        
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+            </div>
+            <div class="content-section mt-4">
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p> -->
+            </div>
+            
+            
+
+        </div>
+
+           
+        </div>
+    </div>
+    <script>
+        $('#sidebar-toggler').click(function(){
+            $('aside').toggleClass('active1');
+            $('.wrapper').toggleClass('active2');
+        })
+        $('.add-btn').click(function(e){
+            let a=$('.form-input').val();
+            e.preventDefault();
+            $('.content-main').prepend('<div class="content-section mt-4"><p>'+ a+'</p></div>');
+            $('.form-input').val('');
+        })
+    </script>
+    
+
+
+</body>
+</html>
