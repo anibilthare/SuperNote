@@ -1,0 +1,2 @@
+This file is just created by Node.js\n
+I appended thisI appended this
