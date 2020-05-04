@@ -1,2 +1,2 @@
 # SuperNote
-DevSoc project. Notes application like Google Keep.
+DevSoc project. Notes application like Google Keep. (Not completed)
